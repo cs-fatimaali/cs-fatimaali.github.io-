@@ -11,19 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  /* ============================================================
-     DESIGN TOKENS
-     ============================================================ */
   :root{
-    --bg: #F5F6F8;
+    --bg: #EFF4FC;
     --surface: #FFFFFF;
-    --ink: #10233F;
-    --ink-soft: #4B5768;
-    --teal: #186670;
-    --teal-dark: #124F57;
-    --amber: #E1A33B;
-    --line: #E1E4EA;
-    --line-soft: #EDEFF3;
+    --ink: #16233F;
+    --ink-soft: #55617A;
+    --teal: #3E6FE0;
+    --teal-dark: #2C54B8;
+    --amber: #F0A93B;
+    --line: #D7E3F5;
+    --line-soft: #E7EFFB;
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -43,14 +40,11 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     background-color: var(--bg);
-    background-image:
-      radial-gradient(circle at 14% 8%, rgba(24,102,112,0.07), transparent 40%),
-      radial-gradient(circle at 88% 4%, rgba(225,163,59,0.08), transparent 38%),
-      linear-gradient(var(--line-soft) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-    background-size: auto, auto, 28px 28px, 28px 28px;
-    background-attachment: fixed, fixed, scroll, scroll;
-    background-repeat: no-repeat, no-repeat, repeat, repeat;
+    background-image: url('bg-hero.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 
   .container {
@@ -70,21 +64,10 @@
 
   h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
 
-  /* ============================================================
-     HERO
-     ============================================================ */
   .hero {
     position: relative;
     padding: 72px 0 56px;
     text-align: center;
-    background-color: var(--bg);
-    background-image:
-      linear-gradient(var(--line-soft) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-    background-size: 28px 28px;
-    background-position: center top;
-    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   }
 
   .hero-inner { position: relative; }
@@ -96,25 +79,24 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--teal);
-    background: rgba(24, 102, 112, 0.08);
-    border: 1px solid rgba(24, 102, 112, 0.2);
+    background: rgba(62, 111, 224, 0.08);
+    border: 1px solid rgba(62, 111, 224, 0.2);
     padding: 5px 12px;
     border-radius: 999px;
     margin-bottom: 22px;
   }
 
-  /* Photo — replace the div below with <img src="images/your-photo.jpg" class="photo" alt="Fatima Ali"> */
   .photo {
     width: 148px;
     height: 148px;
     border-radius: 50%;
     background: var(--surface);
-    border: 2px dashed #C7CCD4;
+    border: 2px dashed #C9D6EC;
     margin: 0 auto 22px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9CA3AF;
+    color: #8FA0BF;
     font-family: var(--font-mono);
     font-size: 12px;
     object-fit: cover;
@@ -144,7 +126,6 @@
     border-radius: 6px;
   }
 
-  /* Signature element: animated data sparkline */
   .sparkline-wrap {
     max-width: 340px;
     margin: 0 auto 30px;
@@ -205,14 +186,11 @@
   }
   .btn.primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
 
-  /* ============================================================
-     NAV TABS
-     ============================================================ */
   nav.tabs {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(245, 246, 248, 0.86);
+    background: rgba(239, 244, 252, 0.86);
     padding: 14px 0;
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(8px);
@@ -243,9 +221,6 @@
     color: #fff;
   }
 
-  /* ============================================================
-     SECTIONS
-     ============================================================ */
   main { padding: 48px 0 80px; }
 
   .tab-content { display: none; }
@@ -274,7 +249,6 @@
     margin-bottom: 18px;
   }
 
-  /* ---- About ---- */
   .about-text { color: var(--ink-soft); font-size: 15.5px; margin-bottom: 26px; }
   .facts {
     display: grid;
@@ -287,7 +261,6 @@
   .facts dd { color: var(--ink); }
   @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
 
-  /* ---- Skills ---- */
   .skill-group { margin-bottom: 24px; }
   .skill-group:last-child { margin-bottom: 0; }
   .skill-group h3 { font-size: 14px; margin-bottom: 12px; }
@@ -302,7 +275,6 @@
     color: var(--ink);
   }
 
-  /* ---- Projects ---- */
   .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -317,21 +289,20 @@
     flex-direction: column;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(16,35,63,0.08); }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(22,35,63,0.10); }
 
-  /* Project photo — replace with <img src="images/project1.jpg" class="card-photo" alt="..."> */
   .card-photo {
     height: 130px;
     background:
       linear-gradient(var(--line-soft) 1px, transparent 1px),
       linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
     background-size: 16px 16px;
-    background-color: #FAFBFC;
+    background-color: #F7FAFF;
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9CA3AF;
+    color: #8FA0BF;
     font-family: var(--font-mono);
     font-size: 12px;
   }
@@ -359,37 +330,29 @@
     .cards { grid-template-columns: 1fr; }
   }
 
-  /* ---- Contact ---- */
   .contact-row {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
   }
 
-  /* ============================================================
-     FOOTER
-     ============================================================ */
   footer {
     border-top: 1px solid var(--line);
     padding: 24px 0;
     text-align: center;
     font-family: var(--font-mono);
     font-size: 12px;
-    color: #8B93A1;
+    color: #7C8AA6;
   }
 
-  /* ============================================================
-     MOBILE
-     ============================================================ */
   @media (max-width: 640px) {
     .container { padding: 0 18px; }
 
     body {
-      background-size: auto, auto, 20px 20px, 20px 20px;
+      background-attachment: scroll;
     }
 
-    /* Hero */
-    .hero { padding: 48px 0 40px; background-size: 20px 20px; }
+    .hero { padding: 48px 0 40px; }
     .photo { width: 116px; height: 116px; }
     header h1 { font-size: clamp(26px, 8vw, 34px); }
     .role-line { gap: 6px; font-size: 12.5px; }
@@ -399,7 +362,6 @@
     .cta-row { flex-direction: column; align-items: stretch; }
     .cta-row .btn { width: 100%; }
 
-    /* Nav — horizontal scroll instead of wrap, so tabs stay one line and thumb-swipeable */
     .tabs-inner {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -430,15 +392,11 @@
 
 <body>
 
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
   <header class="hero">
     <div class="container hero-inner">
       <span class="eyebrow">Data Analyst · Portfolio</span>
 
-      
-     <img src="Fatima Ali.jpg" class="photo" alt="Fatima Ali">
+      <img src="Fatima Ali.jpg" class="photo" alt="Fatima Ali">
 
       <h1>Fatima Ali</h1>
       <div class="role-line">
@@ -448,7 +406,6 @@
         <span>Tableau</span>
       </div>
 
-      <!-- Signature element: animated data sparkline -->
       <div class="sparkline-wrap" aria-hidden="true">
         <svg viewBox="0 0 340 60" xmlns="http://www.w3.org/2000/svg">
           <path id="sparkline-path" d="M2,44 L48,30 L94,38 L140,14 L186,22 L232,8 L278,18 L322,4" />
@@ -465,9 +422,6 @@
     </div>
   </header>
 
-  <!-- ============================================================
-       TABS
-       ============================================================ -->
   <nav class="tabs">
     <div class="container tabs-inner">
       <button class="tab-button active" onclick="showTab('about', this)">About</button>
@@ -479,7 +433,6 @@
 
   <main class="container">
 
-    <!-- ---------- ABOUT ---------- -->
     <section id="about" class="tab-content active">
       <div class="panel">
         <p class="section-label">// about</p>
@@ -498,7 +451,6 @@
       </div>
     </section>
 
-    <!-- ---------- SKILLS ---------- -->
     <section id="skills" class="tab-content">
       <div class="panel">
         <p class="section-label">// skills</p>
@@ -535,15 +487,12 @@
       </div>
     </section>
 
-    <!-- ---------- PROJECTS ---------- -->
     <section id="projects" class="tab-content">
       <div class="panel">
         <p class="section-label">// projects</p>
         <div class="cards">
 
-          <!-- CARD 1 -->
           <div class="card">
-            <!-- Replace with <img src="images/project1.jpg" class="card-photo" alt="..."> -->
             <div class="card-photo">Project Image</div>
             <div class="card-text">
               <h3>Project Title</h3>
@@ -553,7 +502,6 @@
             </div>
           </div>
 
-          <!-- CARD 2 -->
           <div class="card">
             <div class="card-photo">Project Image</div>
             <div class="card-text">
@@ -564,7 +512,6 @@
             </div>
           </div>
 
-          <!-- CARD 3 -->
           <div class="card">
             <div class="card-photo">Project Image</div>
             <div class="card-text">
@@ -579,7 +526,6 @@
       </div>
     </section>
 
-    <!-- ---------- CONTACT ---------- -->
     <section id="contact" class="tab-content">
       <div class="panel">
         <p class="section-label">// contact</p>
@@ -596,13 +542,10 @@
 
   <footer>
     <div class="container">
-      <span id="year"></span>
+      Built by Fatima Ali · <span id="year"></span>
     </div>
   </footer>
 
-  <!-- ============================================================
-       TAB SWITCHING SCRIPT
-       ============================================================ -->
   <script>
     function showTab(id, btn) {
       document.querySelectorAll(".tab-content").forEach(function (el) {
