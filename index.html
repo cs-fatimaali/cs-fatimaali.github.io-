@@ -1,195 +1,555 @@
-<!-- Generated with Claude -->
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Analytics Portfolio</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fatima Ali — Data Analyst Portfolio</title>
+<meta name="description" content="Fatima Ali — Data Analyst. SQL, Python, Tableau. MMA candidate at McGill University." />
 
-    <style>
-      /* ============================================================
-       BASIC STYLES — students can tweak colors/fonts here
-       ============================================================ */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #222;
-        background: #f7f7f7;
-        line-height: 1.5;
-      }
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root{
+    --bg: #F5F6F8;
+    --surface: #FFFFFF;
+    --ink: #10233F;
+    --ink-soft: #4B5768;
+    --teal: #186670;
+    --teal-dark: #124F57;
+    --amber: #E1A33B;
+    --line: #E1E4EA;
+    --line-soft: #EDEFF3;
 
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
-      }
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
 
-      /* ---------- HEADER (photo + name + subheading) ---------- */
-      header {
-        text-align: center;
-        margin-bottom: 30px;
-      }
+    --radius: 10px;
+    --max-width: 920px;
+  }
 
-      /* Empty space for photo — replace with your own <img> if you like */
-      .photo {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        background: #ddd;
-        border: 2px dashed #aaa;
-        margin: 0 auto 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #888;
-        font-size: 13px;
-      }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-      header h1 {
-        font-size: 28px;
-        margin-bottom: 6px;
-      } /* NAME */
-      header p {
-        font-size: 16px;
-        color: #555;
-      } /* EXPERIENCES */
+  html { scroll-behavior: smooth; }
 
-      /* ---------- TABS ---------- */
-      .tabs {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 24px;
-      }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 14% 8%, rgba(24,102,112,0.07), transparent 40%),
+      radial-gradient(circle at 88% 4%, rgba(225,163,59,0.08), transparent 38%),
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: auto, auto, 28px 28px, 28px 28px;
+    background-attachment: fixed, fixed, scroll, scroll;
+    background-repeat: no-repeat, no-repeat, repeat, repeat;
+  }
 
-      .tab-button {
-        padding: 10px 22px;
-        border: 1px solid #ccc;
-        background: #fff;
-        cursor: pointer;
-        font-size: 15px;
-        border-radius: 4px;
-      }
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-      .tab-button.active {
-        background: #2c3e50;
-        color: #fff;
-        border-color: #2c3e50;
-      }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { color: var(--teal-dark); }
 
-      /* ---------- TAB CONTENT ---------- */
-      .tab-content {
-        display: none;
-      }
-      .tab-content.active {
-        display: block;
-      }
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 
-      .panel {
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        padding: 24px;
-      }
+  h1, h2, h3 { font-family: var(--font-display); color: var(--ink); }
 
-      /* ---------- PROJECT CARDS (1 x 3 grid) ---------- */
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative;
+    padding: 72px 0 56px;
+    text-align: center;
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: center top;
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
 
-      .card {
-        border: 1px solid #eee;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #fff;
-      }
+  .hero-inner { position: relative; }
 
-      /* Empty space for project photo */
-      .card-photo {
-        height: 120px;
-        background: #ddd;
-        border-bottom: 1px dashed #aaa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #888;
-        font-size: 12px;
-      }
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(24, 102, 112, 0.08);
+    border: 1px solid rgba(24, 102, 112, 0.2);
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
 
-      .card-text {
-        padding: 14px;
-      }
-      .card-text h3 {
-        font-size: 16px;
-        margin-bottom: 6px;
-      }
-      .card-text p {
-        font-size: 14px;
-        color: #555;
-      }
+  /* Photo — replace the div below with <img src="images/your-photo.jpg" class="photo" alt="Fatima Ali"> */
+  .photo {
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px dashed #C7CCD4;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9CA3AF;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    object-fit: cover;
+  }
 
-      /* ---------- MOBILE: stack cards vertically ---------- */
-      @media (max-width: 640px) {
-        .cards {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
+  header h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
 
-  <body>
-    <div class="container">
-      <!-- ============================================================
-         HEADER: photo, name, experiences
-         ============================================================ -->
-      <header>
-        <!-- Replace this div with <img src="your-photo.jpg" class="photo"> -->
-        <!--<div class="photo">Photo</div>-->
-        <img src="Fatima Ali.jpg" class="photo" alt="Fatima Ali">
+  .role-line {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 26px;
+  }
+  .role-line span {
+    padding: 4px 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
 
-        <h1>FATIMA ALI</h1>
-        <p>Data Analyst · MMA @ McGill · SQL · Python · Tableau</p>
-      </header>
+  /* Signature element: animated data sparkline */
+  .sparkline-wrap {
+    max-width: 340px;
+    margin: 0 auto 30px;
+  }
+  .sparkline-wrap svg { width: 100%; height: auto; display: block; }
+  #sparkline-path {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: draw-in 1.6s cubic-bezier(.4,0,.2,1) 0.2s forwards;
+  }
+  #sparkline-dot {
+    fill: var(--amber);
+    opacity: 0;
+    animation: dot-in 0.4s ease 1.6s forwards, pulse 2.2s ease-in-out 2s infinite;
+  }
+  @keyframes draw-in { to { stroke-dashoffset: 0; } }
+  @keyframes dot-in { to { opacity: 1; } }
+  @keyframes pulse {
+    0%, 100% { r: 4; opacity: 1; }
+    50% { r: 6; opacity: 0.6; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #sparkline-path { animation: none; stroke-dashoffset: 0; }
+    #sparkline-dot { animation: none; opacity: 1; }
+  }
 
-      <!-- ============================================================
-         TABS
-         ============================================================ -->
-      <div class="tabs">
-        <button class="tab-button active" onclick="showTab('about')">
-          About Me
-        </button>
-        <button class="tab-button" onclick="showTab('projects')">
-          Projects
-        </button>
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 12px 18px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:hover { border-color: var(--teal); color: var(--teal); }
+  .btn.primary {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
+  .btn.primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
+
+  /* ============================================================
+     NAV TABS
+     ============================================================ */
+  nav.tabs {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(245, 246, 248, 0.86);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .tabs-inner {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .tab-button {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 10px 18px;
+    min-height: 40px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background 0.15s ease, color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tab-button:hover { color: var(--ink); }
+  .tab-button.active {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* ============================================================
+     SECTIONS
+     ============================================================ */
+  main { padding: 48px 0 80px; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fade-up 0.35s ease; }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tab-content.active { animation: none; }
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+  }
+
+  /* ---- About ---- */
+  .about-text { color: var(--ink-soft); font-size: 15.5px; margin-bottom: 26px; }
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 24px;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+  }
+  .facts dt { color: var(--teal); margin-bottom: 3px; }
+  .facts dd { color: var(--ink); }
+  @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
+
+  /* ---- Skills ---- */
+  .skill-group { margin-bottom: 24px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group h3 { font-size: 14px; margin-bottom: 12px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 6px 12px;
+    background: var(--line-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+  }
+
+  /* ---- Projects ---- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(16,35,63,0.08); }
+
+  /* Project photo — replace with <img src="images/project1.jpg" class="card-photo" alt="..."> */
+  .card-photo {
+    height: 130px;
+    background:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-color: #FAFBFC;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9CA3AF;
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .card-text { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+  .card-text h3 { font-size: 15.5px; margin-bottom: 8px; }
+  .card-text p { font-size: 13.5px; color: var(--ink-soft); flex: 1; margin-bottom: 12px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .card-tags span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    background: var(--line-soft);
+    border-radius: 5px;
+    color: var(--ink-soft);
+  }
+  .card-link {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--teal);
+  }
+  .card-link:hover { color: var(--teal-dark); }
+
+  @media (max-width: 700px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+
+  /* ---- Contact ---- */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 24px 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #8B93A1;
+  }
+
+  /* ============================================================
+     MOBILE
+     ============================================================ */
+  @media (max-width: 640px) {
+    .container { padding: 0 18px; }
+
+    body {
+      background-size: auto, auto, 20px 20px, 20px 20px;
+    }
+
+    /* Hero */
+    .hero { padding: 48px 0 40px; background-size: 20px 20px; }
+    .photo { width: 116px; height: 116px; }
+    header h1 { font-size: clamp(26px, 8vw, 34px); }
+    .role-line { gap: 6px; font-size: 12.5px; }
+    .role-line span { padding: 4px 9px; }
+    .sparkline-wrap { max-width: 260px; }
+
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .cta-row .btn { width: 100%; }
+
+    /* Nav — horizontal scroll instead of wrap, so tabs stay one line and thumb-swipeable */
+    .tabs-inner {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 2px;
+    }
+    .tabs-inner::-webkit-scrollbar { display: none; }
+    .tab-button { flex: 0 0 auto; }
+
+    main { padding: 32px 0 56px; }
+    .panel { padding: 22px 18px; }
+
+    .facts { gap: 12px 18px; }
+
+    .contact-row { flex-direction: column; align-items: stretch; }
+    .contact-row .btn { width: 100%; }
+  }
+
+  @media (max-width: 400px) {
+    header h1 { font-size: 26px; }
+    .eyebrow { font-size: 11px; padding: 4px 10px; }
+    .panel { padding: 18px 14px; }
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Data Analyst · Portfolio</span>
+
+      
+     <img src="images/Fatima Ali.jpg" class="photo" alt="Fatima Ali">
+
+      <h1>Fatima Ali</h1>
+      <div class="role-line">
+        <span>MMA @ McGill</span>
+        <span>SQL</span>
+        <span>Python</span>
+        <span>Tableau</span>
       </div>
 
-      <!-- ---------- TAB 1: ABOUT ME ---------- -->
-      <div id="about" class="tab-content active">
-        <div class="panel">
-          <p>
-            I have a background in Computer Systems Engineering and have almost 3 years of experience
-working as an Software Quality Assurance Analyst. I currently pursuing my Masters in Management Analytics at McGill University 
-          </p>
+      <!-- Signature element: animated data sparkline -->
+      <div class="sparkline-wrap" aria-hidden="true">
+        <svg viewBox="0 0 340 60" xmlns="http://www.w3.org/2000/svg">
+          <path id="sparkline-path" d="M2,44 L48,30 L94,38 L140,14 L186,22 L232,8 L278,18 L322,4" />
+          <circle id="sparkline-dot" cx="322" cy="4" r="4" />
+        </svg>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:fatima.ali@example.com">Email me</a>
+        <a class="btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       TABS
+       ============================================================ -->
+  <nav class="tabs">
+    <div class="container tabs-inner">
+      <button class="tab-button active" onclick="showTab('about', this)">About</button>
+      <button class="tab-button" onclick="showTab('skills', this)">Skills</button>
+      <button class="tab-button" onclick="showTab('projects', this)">Projects</button>
+      <button class="tab-button" onclick="showTab('contact', this)">Contact</button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ---------- ABOUT ---------- -->
+    <section id="about" class="tab-content active">
+      <div class="panel">
+        <p class="section-label">// about</p>
+        <p class="about-text">
+          I have a background in Computer Systems Engineering and nearly three years of experience
+          working as a Software Quality Assurance Analyst. I'm currently pursuing my Master's in
+          Management Analytics at McGill University, focused on turning data into decisions that hold up
+          under scrutiny.
+        </p>
+        <dl class="facts">
+          <div><dt>Location</dt><dd>Montreal, QC</dd></div>
+          <div><dt>Program</dt><dd>MMA, McGill University</dd></div>
+          <div><dt>Background</dt><dd>Computer Systems Engineering</dd></div>
+          <div><dt>Focus</dt><dd>Data Analytics &amp; BI</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ---------- SKILLS ---------- -->
+    <section id="skills" class="tab-content">
+      <div class="panel">
+        <p class="section-label">// skills</p>
+
+        <div class="skill-group">
+          <h3>Languages &amp; Tools</h3>
+          <div class="chip-row">
+            <span class="chip">SQL</span>
+            <span class="chip">Python</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Excel</span>
+            <span class="chip">Power BI</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Data &amp; Analysis</h3>
+          <div class="chip-row">
+            <span class="chip">Data Cleaning</span>
+            <span class="chip">Statistical Analysis</span>
+            <span class="chip">Dashboarding</span>
+            <span class="chip">A/B Testing</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Domain</h3>
+          <div class="chip-row">
+            <span class="chip">Quality Assurance</span>
+            <span class="chip">Business Analytics</span>
+            <span class="chip">Process Improvement</span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- ---------- TAB 2: PROJECTS ---------- -->
-      <div id="projects" class="tab-content">
+    <!-- ---------- PROJECTS ---------- -->
+    <section id="projects" class="tab-content">
+      <div class="panel">
+        <p class="section-label">// projects</p>
         <div class="cards">
+
           <!-- CARD 1 -->
           <div class="card">
+            <!-- Replace with <img src="images/project1.jpg" class="card-photo" alt="..."> -->
             <div class="card-photo">Project Image</div>
             <div class="card-text">
               <h3>Project Title</h3>
-              <p>Short description of what you did and the tools you used.</p>
+              <div class="card-tags"><span>SQL</span><span>Tableau</span></div>
+              <p>Short description of what you did, the problem it solved, and the outcome.</p>
+              <a class="card-link" href="#">View project →</a>
             </div>
           </div>
 
@@ -198,7 +558,9 @@ working as an Software Quality Assurance Analyst. I currently pursuing my Master
             <div class="card-photo">Project Image</div>
             <div class="card-text">
               <h3>Project Title</h3>
-              <p>Short description of what you did and the tools you used.</p>
+              <div class="card-tags"><span>Python</span><span>Pandas</span></div>
+              <p>Short description of what you did, the problem it solved, and the outcome.</p>
+              <a class="card-link" href="#">View project →</a>
             </div>
           </div>
 
@@ -207,30 +569,53 @@ working as an Software Quality Assurance Analyst. I currently pursuing my Master
             <div class="card-photo">Project Image</div>
             <div class="card-text">
               <h3>Project Title</h3>
-              <p>Short description of what you did and the tools you used.</p>
+              <div class="card-tags"><span>Power BI</span><span>Excel</span></div>
+              <p>Short description of what you did, the problem it solved, and the outcome.</p>
+              <a class="card-link" href="#">View project →</a>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ============================================================
-       SIMPLE TAB SWITCHING SCRIPT
+    <!-- ---------- CONTACT ---------- -->
+    <section id="contact" class="tab-content">
+      <div class="panel">
+        <p class="section-label">// contact</p>
+        <p class="about-text">Reach out — I'm happy to talk data, analytics roles, or McGill life.</p>
+        <div class="contact-row">
+          <a class="btn primary" href="mailto:fatima.ali@example.com">Email</a>
+          <a class="btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <span id="year"></span>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       TAB SWITCHING SCRIPT
        ============================================================ -->
-    <script>
-      function showTab(id) {
-        // hide all tab contents
-        document.querySelectorAll(".tab-content").forEach(function (el) {
-          el.classList.remove("active");
-        });
-        // remove active state from all buttons
-        document.querySelectorAll(".tab-button").forEach(function (btn) {
-          btn.classList.remove("active");
-        });
-        // show the selected tab + highlight the clicked button
-        document.getElementById(id).classList.add("active");
-        event.target.classList.add("active");
-      }
-    </script>
-  </body>
+  <script>
+    function showTab(id, btn) {
+      document.querySelectorAll(".tab-content").forEach(function (el) {
+        el.classList.remove("active");
+      });
+      document.querySelectorAll(".tab-button").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+      btn.classList.add("active");
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
 </html>
